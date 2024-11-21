@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using PagedList;
 
 namespace Web_bán_hàng__đồ_án_.Models.ViewModel
 {
