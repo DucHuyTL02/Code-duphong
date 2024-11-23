@@ -19,20 +19,44 @@ namespace Web_bán_hàng__đồ_án_.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product pro =csdl.Products.Find(id);
-            if (pro == null)
+            Product product = csdl.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            var product = csdl.Products.Where(p => p.CategoryID == pro.CategoryID && p.ProductID != pro.ProductID).AsQueryable();
-            ProductDetailsVM model = new ProductDetailsVM();
-            return View(model);
+            return View(product);
         }
         public ActionResult ProductList()
         {
             var products = csdl.Products.ToList();
             return View(products);
         }
+        public ActionResult Category(int categoryId)
+        {
+            // Lấy danh sách sản phẩm theo danh mục
+            var products = csdl.Products
+                .Where(p => p.CategoryID == categoryId)
+                .ToList();
+
+            // Lấy thông tin danh mục để hiển thị tên trên View
+            var category = csdl.Categories
+                .FirstOrDefault(c => c.CategoryID == categoryId);
+
+            if (category == null)
+            {
+                return HttpNotFound("Danh mục không tồn tại.");
+            }
+
+            // Truyền dữ liệu vào ViewModel (nếu cần thiết)
+            var viewModel = new HomeProductVM()
+            {
+                Products = products,
+                CategoryName = category.CategoryName
+            };
+
+            return View(viewModel);
+        }
+
         public ActionResult Xacnhan()
         {
             return View();

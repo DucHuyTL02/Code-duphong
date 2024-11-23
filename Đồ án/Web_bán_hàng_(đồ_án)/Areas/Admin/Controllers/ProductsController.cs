@@ -58,7 +58,7 @@ namespace Web_bán_hàng__đồ_án_.Areas.Admin.Controllers
             }
             model.SortOrder = sortOrder;
             int pageNumber = page ?? 1;
-            int pageSize = 2;
+            int pageSize = 8;
             model.Products = products.ToPagedList(pageNumber, pageSize);
             return View(model);
         }

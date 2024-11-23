@@ -1,14 +1,53 @@
-﻿@model Web_bán_hàng__đồ_án_.Models.Product
+﻿
 @{
-    ViewBag.Title = "Details";
+
     Layout = "~/Views/Shared/_LayoutWeb.cshtml";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/StyleCustomer/StyleDetails.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="product-header">
+            <div class="product-image-container">
+                <img src="@Model.ProductImage" alt="@Model.ProductName" class="product-image">
+            </div>
 
-<h2>Details</h2>
+            <div class="product-info">
+                <h1 class="product-title">@Model.ProductName</h1>
+                <p class="product-id">Mã Số Sản Phẩm: @Model.ProductID</p>
+                <div class="price">@Model.ProductPrice</div>
 
-<div class="product-details">
-    <img src="@Model.ProductImage" alt="@Model.ProductName" class="product-image" />
-    <h2>@Model.ProductName</h2>
-    <p>@Model.ProductDescription</p>
-    <p>Price: $@Model.ProductPrice</p>
-</div>
+                <div class="button-group">
+                    <a href="add_to_cart_url" class="add-to-cart" data-id="@Model.ProductID">THÊM VÀO GIỎ HÀNG</a>
+                    <a href="installment_url" class="installment">Trả Góp Qua Thẻ<br>(Visa, Master, JCB)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-details">
+            <h3>Chi Tiết Sản Phẩm</h3>
+            <div class="product-description">
+                @Model.ProductDescription
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    $(document).on('click', '.add-to-cart', function () {
+        const productId = $(this).data('id');
+        const quantity = 1; // Số lượng mặc định
+
+        $.post('/Cart/AddToCart', { productId, quantity }, function (response) {
+            if (response.success) {
+                alert(response.message);
+            } else {
+                alert("Lỗi: " + response.message);
+            }
+        });
+    });
+</script>

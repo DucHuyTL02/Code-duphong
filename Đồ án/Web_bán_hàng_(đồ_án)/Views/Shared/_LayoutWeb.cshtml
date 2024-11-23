@@ -1,4 +1,5 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 
 
 <html>
@@ -44,6 +45,13 @@
         <div id="menu1">
             <ul class="menu">
                 <li> <a> @Html.ActionLink("Trang Chủ", "trangchu", "Home", new { area = "" }, new { @class = "navbar-brand" }) </a></li>
+
+
+                <li> <a> @Html.ActionLink("Tất cả Sản Phẩm", "All", "Home", new { area = "" }, new { @class = "navbar-brand" }) </a></li>
+
+
+
+
                 <li class="menucon">
                     <a href="@Url.Action("MenWatches", "Home")" style="text-decoration: none;">Đồng Hồ Nam</a>                        <ul class="PhongCach">
                         <li>
@@ -218,8 +226,16 @@
                                 </ul>
                             </li>
                         </ul>
-                </li>
+                    </ul>
             </ul>
+
+            </li>
+
+
+
+
+
+
         </div>
         <div id="menu2">
             <div class="login">
@@ -248,7 +264,7 @@
             <div class="row">
 
                 <div class="col-md-3">
-                    <h5  style="color:cornflowerblue" >THÔNG TIN LIÊN HỆ</h5>
+                    <h5 style="color:cornflowerblue">THÔNG TIN LIÊN HỆ</h5>
                     <p><b>CÔNG TY PHÂN PHỐI SẢN PHẨM CAO CẤP THE WORLD OF THE WATCH</b></p>
                     <p>Trụ sở chính:41 Sao Hỏa - Đường Sao Kim - Quận Sao Thủy - Thành Phố Sao Mộc</p>
                     <p>Chi nhánh Sao Kim: 131 Mặt Trăng - Quận Sao Hải Vương - Thành Phố Sao Thổ</p>
@@ -269,7 +285,7 @@
 
 
                 <div class="col-md-2">
-                    <h5  style="color:cornflowerblue">VỀ CHÚNG TÔI</h5>
+                    <h5 style="color:cornflowerblue">VỀ CHÚNG TÔI</h5>
                     <ul>
                         <li><a href="#" style="color: white; text-decoration: none">Giới thiệu </a></li>
                         <li><a href="#" style="color: white; text-decoration: none">Triết lý kinh doanh</a></li>
@@ -279,7 +295,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <h5 style="color:cornflowerblue" >CHĂM SÓC KHÁCH HÀNG</h5>
+                    <h5 style="color:cornflowerblue">CHĂM SÓC KHÁCH HÀNG</h5>
                     <ul>
                         <li><a href="#" style="color: white; text-decoration: none">Ưu đãi hội viên</a></li>
                         <li><a href="#" style="color: white; text-decoration: none">Chính sách đổi sản phẩm</a></li>
@@ -290,7 +306,7 @@
 
                 <
                 <div class="col-md-2">
-                    <h5 style="color:cornflowerblue" >HƯỚNG DẪN MUA HÀNG</h5>
+                    <h5 style="color:cornflowerblue">HƯỚNG DẪN MUA HÀNG</h5>
                     <ul>
                         <li><a style="text-decoration:none; color:white" @Html.ActionLink("Đăng Nhập", "Login", "Account")></a></li>
                         <li><a href="#" style="color: white; text-decoration: none">Hướng dẫn mua hàng</a></li>
@@ -315,7 +331,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Slide Bar Layout</title>
         <!-- Link đến file CSS -->
-        <link href="~/Content/StyleCustomer/SlideBar.css" rel="stylesheet" >
+        <link href="~/Content/StyleCus/SlideBar.css" rel="stylesheet">
     </head>
     <body>
         <!-- Slide Bar Trái -->
